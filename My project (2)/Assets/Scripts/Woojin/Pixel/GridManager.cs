@@ -10,6 +10,7 @@ public class PixelGridManager : MonoBehaviour
     public Color drawColor = Color.black;
     public int gridSize = 32;
     public int drawpoint;
+    public Text number;
 
     private PixelButton[,] pixels;
     private int currentImageIndex = -1; // 현재 편집 중인 이미지 번호 (-1 = 새로 그리기)
@@ -151,6 +152,10 @@ public class PixelGridManager : MonoBehaviour
         }
         currentImageIndex = -1;
         Debug.Log("🧹 새 캔버스로 초기화 완료");
+    }
+
+    void FixedUpdate(){
+        number.text = drawpoint.ToString();
     }
 
     void OnDestroy(){
