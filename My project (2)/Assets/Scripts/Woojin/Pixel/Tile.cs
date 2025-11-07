@@ -16,14 +16,16 @@ public class PixelButton : MonoBehaviour
     {
         manager = mgr;
         image = GetComponent<Image>();
-        image.color = Color.white;
+        image.color = new Color(1, 1, 1, 0);
     }
 
     public void OnClick()
     {
         if (manager == null) return;
+        if (manager.drawpoint<=0) return;
         currentColor = manager.drawColor;
         image.color = currentColor;
+        manager.drawpoint -= 1;
     }
 
     public Color GetColor()
