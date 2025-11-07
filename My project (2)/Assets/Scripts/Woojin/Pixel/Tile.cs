@@ -16,7 +16,7 @@ public class PixelButton : MonoBehaviour
     {
         manager = mgr;
         image = GetComponent<Image>();
-        image.color = new Color(1, 1, 1, 0);
+        image.color = new Color(0, 0, 0, 0);
     }
 
     public void OnClick()
