@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
-public class sceneToWear : MonoBehaviour
+public class sceneToTimer : MonoBehaviour
 {
-    public void SceneToWear()
+    public void SceneToTimer()
     {
-        SceneManager.LoadScene("Wear");
+        SceneManager.LoadScene("TIMER");
     }
 }

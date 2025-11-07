@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Settings.unity
     guid: 45574c6757e9e4941bd1a8f3e30b41a3
   - enabled: 1
-    path: Assets/Scenes/Wear.unity
+    path: Assets/Scenes/TIMER.unity
     guid: ab17b2ad0d3ca274d9fa75f3e58af8f1
   - enabled: 1
     path: Assets/Scenes/friend.unity
