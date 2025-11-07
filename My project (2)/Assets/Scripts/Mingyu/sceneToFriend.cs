@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class sceneToFriend : MonoBehaviour
 {
-    public void SceneToFriend()
+    public void SceneTofriend()
     {
-        SceneManager.LoadScene("Friend");
+        SceneManager.LoadScene("friend");
     }
 }
