@@ -46,7 +46,7 @@ public class PixelGridManager : MonoBehaviour
         tex.Apply();
 
         byte[] bytes = tex.EncodeToPNG();
-        string path = Path.Combine(Application.persistentDataPath, "pixel_art.png");
+        string path = Path.Combine(Application.persistentDataPath, "Charactors");
         File.WriteAllBytes(path, bytes);
         Debug.Log($"✅ 픽셀 아트 저장 완료: {path}");
     }
