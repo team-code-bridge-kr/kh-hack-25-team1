@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8337677397014414bb1eae7fd5b91fe1
+guid: 9744a1fbb5b3a244280f3fabb120dda6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8724071292508718828
-    second: "\uD654\uC0B4\uD45C \uBC84\uD2BC_0"
+      213: -2940860931561893559
+    second: sound4_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\uD654\uC0B4\uD45C \uBC84\uD2BC_0"
+      name: sound4_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1300
-        height: 1300
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 419b5dea16fdde680800000000000000
-      internalID: -8724071292508718828
+      spriteID: 941dd686096ff27d0800000000000000
+      internalID: -2940860931561893559
       vertices: []
       indices: 
       edges: []
