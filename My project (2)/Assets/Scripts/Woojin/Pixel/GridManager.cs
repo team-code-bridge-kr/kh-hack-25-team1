@@ -8,6 +8,7 @@ public class PixelGridManager : MonoBehaviour
     public Transform gridParent;   // GridLayoutGroup이 붙은 오브젝트
     public Color drawColor = Color.black;
     public int gridSize = 32;
+    public int drawpoint;
 
     private PixelButton[,] pixels;
 
@@ -39,7 +40,7 @@ public class PixelGridManager : MonoBehaviour
         {
             for (int x = 0; x < gridSize; x++)
             {
-                tex.SetPixel(x, y, pixels[x, y].GetColor());
+                tex.SetPixel(x, gridSize -1 -y, pixels[x, y].GetColor());
             }
         }
         tex.Apply();
