@@ -3,8 +3,11 @@ using System.IO;
 
 public class CharacterSpriteLoader : MonoBehaviour
 {
+    public int drawpoint;
+
     void Start()
     {
+        drawpoint = PlayerPrefs.GetInt("drawpoint", drawpoint);
         string folderPath = Path.Combine(Application.persistentDataPath, "Charactors");
         if (!Directory.Exists(folderPath))
         {
@@ -54,5 +57,9 @@ public class CharacterSpriteLoader : MonoBehaviour
 
             Debug.Log($"✅ Sprite 생성 완료: {file}");
         }
+    }
+
+    void OnDestroy(){
+        PlayerPrefs.SetInt("drawpoint", drawpoint);
     }
 }

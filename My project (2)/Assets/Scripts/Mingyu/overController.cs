@@ -4,14 +4,18 @@ using System.Collections;
 
 public class overController : MonoBehaviour
 {
+    public int drawpoint;
     void Start()
     {
         StartCoroutine(GoToMainAfterSeconds(timerController.remainingTime));
     }
 
-    private IEnumerator GoToMainAfterSeconds(float seconds)
+    private IEnumerator GoToMainAfterSeconds(int seconds)
     {
         yield return new WaitForSeconds(seconds);
-        SceneManager.LoadScene("Main"); // ½Ã°£ ³¡³ª¸é Main¾ÀÀ¸·Î
+        drawpoint = PlayerPrefs.GetInt("drawpoint", 0);
+        drawpoint += seconds/10;
+        PlayerPrefs.SetInt("drawpoint", drawpoint);
+        SceneManager.LoadScene("Main"); // ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Mainï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     }
 }

@@ -6,9 +6,11 @@ public class PixelButton : MonoBehaviour
     private Image image;
     private Color currentColor = Color.white;
     private PixelGridManager manager;
+    public int drawpoint;
 
     void Start()
     {
+        drawpoint = PlayerPrefs.GetInt("drawpoint", 0);
         image = GetComponent<Image>();
     }
 
@@ -40,4 +42,6 @@ public class PixelButton : MonoBehaviour
     {
         return currentColor;
     }
+
+    
 }

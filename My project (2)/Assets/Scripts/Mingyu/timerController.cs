@@ -3,11 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class timerController : MonoBehaviour
 {
-    public static float remainingTime; // Over¾À¿¡¼­ »ç¿ëÇÏ±â À§ÇØ staticÀ¸·Î ÀúÀå
+    public static int remainingTime; // Overï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ staticï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-    public void StartTimerInSeconds(float seconds)
+    public void StartTimerInSeconds(int seconds)
     {
-        remainingTime = seconds; // ½Ã°£ ÀúÀå
-        SceneManager.LoadScene("Over"); // ¹Ù·Î Over¾ÀÀ¸·Î ÀÌµ¿
+        remainingTime = seconds; // ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½
+        SceneManager.LoadScene("Over"); // ï¿½Ù·ï¿½ Overï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
     }
 }

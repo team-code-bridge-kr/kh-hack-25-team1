@@ -17,6 +17,7 @@ public class PixelGridManager : MonoBehaviour
 
     void Start()
     {
+        drawpoint = PlayerPrefs.GetInt("drawpoint", 0);
         pixels = new PixelButton[gridSize, gridSize];
         CreateGrid();
     }
@@ -150,5 +151,9 @@ public class PixelGridManager : MonoBehaviour
         }
         currentImageIndex = -1;
         Debug.Log("🧹 새 캔버스로 초기화 완료");
+    }
+
+    void OnDestroy(){
+        PlayerPrefs.SetInt("drawpoint", drawpoint);
     }
 }
