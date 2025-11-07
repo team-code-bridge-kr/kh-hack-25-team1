@@ -1813,8 +1813,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1301414913}
-  - component: {fileID: 1301414912}
   - component: {fileID: 1301414914}
+  - component: {fileID: 1301414915}
   m_Layer: 0
   m_Name: GameEnder
   m_TagString: Untagged
@@ -1822,21 +1822,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1301414912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1301414911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab86162492de9e747bcd685daa4f1d13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxRunTime: 10
-  shutdownPanel: {fileID: 0}
-  shutdownButton: {fileID: 0}
 --- !u!4 &1301414913
 Transform:
   m_ObjectHideFlags: 0
@@ -1864,6 +1849,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84d296bdb611eec4abd2f6a8e75c6d51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1301414915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301414911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab86162492de9e747bcd685daa4f1d13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRunTime: 900
+  sceneAfterRestart: Over
 --- !u!1 &1308657335
 GameObject:
   m_ObjectHideFlags: 0
