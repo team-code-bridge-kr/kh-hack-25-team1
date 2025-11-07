@@ -1,16 +1,18 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class QuitButton : MonoBehaviour
+public class MainMenu : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    // Call when you press the end of the game button
+    public void ClickQuit()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // Unity Editor
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        // Android or Standalone
+        Application.Quit();
+#endif
     }
 }
