@@ -1813,30 +1813,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1301414913}
-  - component: {fileID: 1301414912}
-  - component: {fileID: 1301414914}
+  - component: {fileID: 1301414915}
   m_Layer: 0
   m_Name: GameEnder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1301414912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1301414911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab86162492de9e747bcd685daa4f1d13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxRunTime: 10
-  shutdownPanel: {fileID: 0}
-  shutdownButton: {fileID: 0}
+  m_IsActive: 0
 --- !u!4 &1301414913
 Transform:
   m_ObjectHideFlags: 0
@@ -1852,18 +1836,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1301414914
+--- !u!114 &1301414915
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1301414911}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84d296bdb611eec4abd2f6a8e75c6d51, type: 3}
+  m_Script: {fileID: 11500000, guid: ab86162492de9e747bcd685daa4f1d13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxRunTime: 900
+  gameOverSceneName: Over
 --- !u!1 &1308657335
 GameObject:
   m_ObjectHideFlags: 0
@@ -2759,7 +2745,7 @@ GameObject:
   - component: {fileID: 1674383320}
   - component: {fileID: 1674383321}
   m_Layer: 5
-  m_Name: minkyu_wearingButton
+  m_Name: minkyu_timerButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2829,9 +2815,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1674383320}
-        m_TargetAssemblyTypeName: sceneToWear, Assembly-CSharp
-        m_MethodName: SceneToWear
+      - m_Target: {fileID: 1674383321}
+        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
+        m_MethodName: ChangeScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2903,7 +2889,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3998a1de44cb8949afe2a3807a7f107, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Wear
+  sceneName: TIMER
 --- !u!1 &1775062024
 GameObject:
   m_ObjectHideFlags: 0
