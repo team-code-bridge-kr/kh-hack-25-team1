@@ -28,6 +28,14 @@ public class PixelButton : MonoBehaviour
         manager.drawpoint -= 1;
     }
 
+    public void SetColor(Color c)
+{
+    currentColor = c;
+    if (image == null) image = GetComponent<Image>();
+    image.color = c;
+}
+
+
     public Color GetColor()
     {
         return currentColor;
