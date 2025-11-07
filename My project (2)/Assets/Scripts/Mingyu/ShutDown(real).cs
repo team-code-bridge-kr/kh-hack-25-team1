@@ -1,10 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class ForcedShutdownPanel : MonoBehaviour
 {
-    public float maxRunTime = 600f;
+    public float maxRunTime = 900f; // 15분 = 900초
     public GameObject shutdownPanel; // 종료 버튼이 있는 패널
     public Button shutdownButton;    // 패널 안 버튼
 
@@ -33,6 +36,11 @@ public class ForcedShutdownPanel : MonoBehaviour
     void OnShutdownButtonClicked()
     {
         Debug.Log("강제 종료 버튼 클릭");
-        Application.Quit(); // 빌드된 애플리케이션 종료
+
+#if UNITY_EDITOR
+        EditorApplication.isPlaying = false; // 에디터 종료
+#else
+        Application.Quit(); // 빌드 종료
+#endif
     }
 }
