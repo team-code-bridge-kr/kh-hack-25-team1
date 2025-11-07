@@ -2,12 +2,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
-public class emojiAppear : MonoBehaviour
+public class HeadObjectController : MonoBehaviour
 {
-    public Button myButton;          // 눌렀을 때 동작할 버튼
-    public GameObject objectToShow;  // 머리 위에 나타낼 오브젝트
+    public Button myButton;          // 동작할 버튼
+    public GameObject objectToShow;  // 머리 위에 나타날 오브젝트
     public Transform characterHead;  // 캐릭터 머리 위치
     public float displayTime = 2f;   // 몇 초 동안 보여줄지
+    public Vector3 offset = new Vector3(0, 0.8f, 0); // 머리 위로 살짝 떠 있는 위치
+
+    private bool isFollowing = false; // 머리 따라가는 상태
 
     void Start()
     {
@@ -15,18 +18,24 @@ public class emojiAppear : MonoBehaviour
             myButton.onClick.AddListener(OnButtonClicked);
 
         if (objectToShow != null)
-            objectToShow.SetActive(false);  // 처음엔 숨기기
+            objectToShow.SetActive(false); // 처음엔 숨기기
+    }
+
+    void Update()
+    {
+        // 오브젝트가 머리를 따라가도록
+        if (isFollowing && objectToShow != null && characterHead != null)
+        {
+            objectToShow.transform.position = characterHead.position + offset;
+        }
     }
 
     void OnButtonClicked()
     {
         if (objectToShow != null && characterHead != null)
         {
-            // 머리 위치에 오브젝트 위치 맞추기
-            objectToShow.transform.position = characterHead.position;
             objectToShow.SetActive(true);
-
-            // 일정 시간 후 사라지게 코루틴 실행
+            isFollowing = true; // 머리 따라가기 시작
             StartCoroutine(HideAfterTime(displayTime));
         }
     }
@@ -35,5 +44,6 @@ public class emojiAppear : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         objectToShow.SetActive(false);
+        isFollowing = false; // 따라가기 종료
     }
 }
