@@ -21,10 +21,15 @@ public class CharacterSpriteLoader : MonoBehaviour
             Texture2D tex = new Texture2D(2, 2);
             tex.LoadImage(pngData);
 
+            // ✅ 필터모드를 Point로 설정 (픽셀 깨끗하게 유지)
+            tex.filterMode = FilterMode.Point;
+            tex.Apply();
+
             Sprite sprite = Sprite.Create(
                 tex,
                 new Rect(0, 0, tex.width, tex.height),
-                new Vector2(0.5f, 0.5f)
+                new Vector2(0.5f, 0.5f),
+                32f // ✅ 픽셀 퍼 유닛 (기본 100보다 작게 해서 확대 효과)
             );
 
             // 오브젝트 생성
@@ -32,9 +37,20 @@ public class CharacterSpriteLoader : MonoBehaviour
             SpriteRenderer sr = go.AddComponent<SpriteRenderer>();
             sr.sprite = sprite;
 
-            // 화면에 보기 좋게 정렬
+            // ✅ 오브젝트 크기 2배로 조정
+            go.transform.localScale = new Vector3(2f, 2f, 1f);
+
+            // 보기 좋게 정렬
             go.transform.position = new Vector3(offsetX, 0, 0);
-            offsetX += 1.5f;
+
+            go.AddComponent<characterToMove>();
+            go.GetComponent<characterToMove>().minkyu_speed = 1;
+            go.GetComponent<characterToMove>().minkyu_swingSpeed = 5;
+            go.GetComponent<characterToMove>().minkyu_swingAmount = 8;
+            go.GetComponent<characterToMove>().minkyu_minX = -2.15f;
+            go.GetComponent<characterToMove>().minkyu_maxX = 2.15f;
+            go.GetComponent<characterToMove>().minkyu_minY = -4.2f;
+            go.GetComponent<characterToMove>().minkyu_maxY = 4.2f;
 
             Debug.Log($"✅ Sprite 생성 완료: {file}");
         }

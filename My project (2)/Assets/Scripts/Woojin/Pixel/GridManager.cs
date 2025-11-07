@@ -34,20 +34,36 @@ public class PixelGridManager : MonoBehaviour
 
     // 저장: 픽셀 색을 이미지로 내보내기
     public void SaveToPNG()
+{
+    Texture2D tex = new Texture2D(gridSize, gridSize, TextureFormat.RGBA32, false);
+    for (int y = 0; y < gridSize; y++)
     {
-        Texture2D tex = new Texture2D(gridSize, gridSize, TextureFormat.RGBA32, false);
-        for (int y = 0; y < gridSize; y++)
+        for (int x = 0; x < gridSize; x++)
         {
-            for (int x = 0; x < gridSize; x++)
-            {
-                tex.SetPixel(x, gridSize -1 -y, pixels[x, y].GetColor());
-            }
+            tex.SetPixel(x, gridSize - 1 - y, pixels[x, y].GetColor());
         }
-        tex.Apply();
-
-        byte[] bytes = tex.EncodeToPNG();
-        string path = Path.Combine(Application.persistentDataPath, "Charactors");
-        File.WriteAllBytes(path, bytes);
-        Debug.Log($"✅ 픽셀 아트 저장 완료: {path}");
     }
+    tex.Apply();
+
+    // ✅ Charactors 폴더 경로 생성 (없으면 자동 생성)
+    string folderPath = Path.Combine(Application.persistentDataPath, "Charactors");
+    if (!Directory.Exists(folderPath))
+        Directory.CreateDirectory(folderPath);
+
+    // ✅ 파일 이름 자동 증가: Image(1), Image(2), ...
+    int index = 1;
+    string filePath;
+    do
+    {
+        filePath = Path.Combine(folderPath, $"Image({index}).png");
+        index++;
+    } while (File.Exists(filePath)); // 중복 방지
+
+    // ✅ PNG 저장
+    byte[] bytes = tex.EncodeToPNG();
+    File.WriteAllBytes(filePath, bytes);
+
+    Debug.Log($"✅ 픽셀 아트 저장 완료: {filePath}");
+}
+
 }
