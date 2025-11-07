@@ -1,7 +1,7 @@
-ï»¿using System;
+using System;
 using UnityEngine;
 
-public class Juhyuck : MonoBehaviour   // í´ë˜ìŠ¤ ì‹œì‘
+public class Juhyuck : MonoBehaviour   // Å¬·¡½º ½ÃÀÛ
 {
     public float cooldownSeconds = 3600f;
     DateTime nextAvailableTime;
@@ -30,17 +30,17 @@ public class Juhyuck : MonoBehaviour   // í´ë˜ìŠ¤ ì‹œì‘
         return DateTime.UtcNow >= nextAvailableTime;
     }
 
-    // ë‹¤ë¥¸ ìŠ¤í¬ë¦½íŠ¸ë‚˜ UI ë²„íŠ¼ì—ì„œ í˜¸ì¶œí•  ìˆ˜ ìˆê²Œ public ìœ¼ë¡œ ë³€ê²½
+    // ´Ù¸¥ ½ºÅ©¸³Æ®³ª UI ¹öÆ°¿¡¼­ È£ÃâÇÒ ¼ö ÀÖ°Ô public À¸·Î º¯°æ
     public void TryPlacePixel(int x, int y)
     {
         if (!CanPlacePixel())
         {
             TimeSpan remain = nextAvailableTime - DateTime.UtcNow;
-            Debug.Log($"ì•„ì§ í”½ì…€ ëª» ì°ì–´ìš”. ë‚¨ì€ ì‹œê°„: {remain.Minutes}ë¶„ {remain.Seconds}ì´ˆ");
+            Debug.Log($"¾ÆÁ÷ ÇÈ¼¿ ¸ø Âï¾î¿ä. ³²Àº ½Ã°£: {remain.Minutes}ºĞ {remain.Seconds}ÃÊ");
             return;
         }
 
-        // ì—¬ê¸°ì„œ ì‹¤ì œ ë³´ë“œì— í”½ì…€ ì°ëŠ” í•¨ìˆ˜ë¥¼ í˜¸ì¶œ
+        // ¿©±â¼­ ½ÇÁ¦ º¸µå¿¡ ÇÈ¼¿ Âï´Â ÇÔ¼ö¸¦ È£Ãâ
         PlacePixelOnBoard(x, y);
 
         nextAvailableTime = DateTime.UtcNow.AddSeconds(cooldownSeconds);
@@ -49,9 +49,9 @@ public class Juhyuck : MonoBehaviour   // í´ë˜ìŠ¤ ì‹œì‘
         PlayerPrefs.Save();
     }
 
-    // ìƒˆë¡œ ì¶”ê°€í•œ í•¨ìˆ˜: ì‹¤ì œë¡œ (x, y)ì— í”½ì…€ ì°ëŠ” ë¶€ë¶„
+    // »õ·Î Ãß°¡ÇÑ ÇÔ¼ö: ½ÇÁ¦·Î (x, y)¿¡ ÇÈ¼¿ Âï´Â ºÎºĞ
     void PlacePixelOnBoard(int x, int y)
     {
-        Debug.Log($"({x}, {y}) ì— í”½ì…€ ì°ìŒ!");
+        Debug.Log($"({x}, {y}) ¿¡ ÇÈ¼¿ ÂïÀ½!");
     }
 }
